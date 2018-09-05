@@ -1,0 +1,9 @@
+D:\IGS-Software\Working_PPPA\PPPA\PPP_Project\bin\PPP_Project.dll
+D:\IGS-Software\Working_PPPA\PPPA\PPP_Project\bin\PPP_Project.pdb
+D:\IGS-Software\Working_PPPA\PPPA\PPP_Project\obj\Debug\PPP_Project.dll
+D:\IGS-Software\Working_PPPA\PPPA\PPP_Project\obj\Debug\PPP_Project.pdb
+E:\GSSC\3P\Working_PPPA\PPPA\PPP_Project\bin\PPP_Project.dll
+E:\GSSC\3P\Working_PPPA\PPPA\PPP_Project\bin\PPP_Project.pdb
+E:\GSSC\3P\Working_PPPA\PPPA\PPP_Project\obj\Debug\PPP_Project.dll
+E:\GSSC\3P\Working_PPPA\PPPA\PPP_Project\obj\Debug\PPP_Project.pdb
+E:\GSSC\3P\Working_PPPA\PPPA\PPP_Project\obj\Debug\PPP_Project.csprojResolveAssemblyReference.cache

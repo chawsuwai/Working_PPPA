@@ -1,0 +1,719 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using PPP_Project.Base;
+using PPP_Project.Entity;
+using PPP_Project.Common;
+using PPP_Project.CommonAttributes;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using PPP_Project.Common.Enum;
+using PPP_Project.Common.Extension;
+using PPP_Project.Criteria;
+
+namespace PPP_Project.DAO
+{
+    public class ProbesDAO:DAO<ProbesEntity>
+    {
+        public PPP_Project.Criteria.ImportJobsCriteria Criteria { get; set; }
+        public PPP_Project.Criteria.ExportViewWithoutDe ExportWithoutDe { get; set; }
+
+        public override void Save()
+        {
+            try
+            {
+                ExcuteInsertCommand<ProbesEntity>(Entity, ConnectionDAO.Client.ToConnectionString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public override List<ProbesEntity> FindByCriteria()
+        {
+            try
+            {
+                var sql = " SELECT * FROM " + Table<ProbesEntity>() + " WHERE 1=1";
+                var param = new List<DbParameter>();
+
+                if (!string.IsNullOrEmpty(Criteria.CenterName))
+                {
+                    sql += " AND " + With<ProbesEntity>(x => x.Center) + "= @CenterName";
+                    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                }
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += " AND " + With<ProbesEntity>(x => x.CreatedDate) + " BETWEEN @FromDate AND @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+                return ExcuteStoreQuery<ProbesEntity>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<ProbesEntity> FindProbesJobImportList()
+        {
+            try
+            {
+                var sql = " SELECT QAT,Center,TotalProbes FROM " + Table<ProbesEntity>() + " WHERE 1=1";
+
+                var param = new List<DbParameter>();
+
+                if (!string.IsNullOrEmpty(Criteria.CenterName))
+                {
+                    sql += " AND " + With<ProbesEntity>(x => x.Center) + "= @CenterName";
+                    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                }
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += " AND " + With<ProbesEntity>(x => x.CreatedDate) + " BETWEEN @FromDate AND @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+                return ExcuteStoreQuery<ProbesEntity>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public override void Saves()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete()
+        {
+            try
+            {
+                ExcuteDeleteCommand<ProbesEntity>(Entity, ConnectionDAO.Client.ToConnectionString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public override void Update()
+        {
+            try
+            {
+                ExcuteUpdateCommand<ProbesEntity>(Entity, ConnectionDAO.Client.ToConnectionString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public override Entity.ProbesEntity FindByBarCode(string barCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Entity.ProbesEntity> FindByModelCode(string modelCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Entity.ProbesEntity FindByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Entity.ProbesEntity FindByID(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BranchEntity> FindAllBranch()
+        {
+            try
+            {
+                var sql = "SELECT * FROM Branch";
+                return ExcuteStoreQuery<BranchEntity>(sql, null, ConnectionDAO.Client.ToConnectionString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ProbesEntity> FindByImportedDateAndCenter(string importDate,string center)
+        {
+            try
+            {
+                var param = new List<DbParameter>();
+
+                param.Add(new SqlParameter { ParameterName = "@ImpDate", Value = importDate });
+                param.Add(new SqlParameter { ParameterName = "@Center", Value = center });
+
+                var sql = "SELECT * FROM " + Table<ProbesEntity>() + " WHERE " + With<ProbesEntity>(x => x.ImportedDate) + "=@ImpDate" + " AND " + With<ProbesEntity>(x => x.Center) + "=@Center"; 
+
+                return ExcuteStoreQuery<ProbesEntity>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public  List<ExportViewWithoutDe> FindByCriteriaWithoutDe()
+        {
+            try
+            {
+                var sql = "Exec ExportWithoutDeno";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                //if (!string.IsNullOrEmpty(Criteria.CenterName))
+                //{
+                //    sql += " @Center " + "= @CenterName";
+                //    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                //}
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+                return ExcuteStoreQuery<ExportViewWithoutDe>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<ExportViewWithoutDe> FindByCriteriaWithoutDeForProbes()
+        {
+            try
+            {
+                var sql = "Exec Export_WithoutDe_Probes";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                //if (!string.IsNullOrEmpty(Criteria.CenterName))
+                //{
+                //    sql += " @Center " + "= @CenterName";
+                //    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                //}
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+                return ExcuteStoreQuery<ExportViewWithoutDe>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportProbes> FindByCriteriaDenominatorForProbes()
+        {
+            try
+            {
+                var sql = "Exec Export_WithDe_Probes_DiffMonth";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                //if (!string.IsNullOrEmpty(Criteria.CenterName))
+                //{
+                //    sql += " @Center " + "= @CenterName";
+                //    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                //}
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });   
+
+                return ExcuteStoreQuery<ExportProbes>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportProbes> FindByCriteriaDenominatorForProbesSingle()
+        {
+            try
+            {
+                var sql = "Exec Export_WithDe_Probes_DiffMonth_GSS";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                //if (!string.IsNullOrEmpty(Criteria.CenterName))
+                //{
+                //    sql += " @Center " + "= @CenterName";
+                //    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                //}
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportProbes>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+        public List<ExportProbes> FindByCriteriaDenominatorForProbesSingleIGS()
+        {
+            try
+            {
+                var sql = "Exec Export_WithDe_Probes_DiffMonth_IGS";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                //if (!string.IsNullOrEmpty(Criteria.CenterName))
+                //{
+                //    sql += " @Center " + "= @CenterName";
+                //    param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+                //}
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportProbes>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportProbes> FindByCriteriaDenominatorForProbesSpecial()
+        {
+            try
+            {
+                var sql = "Exec Export_WithDe_Probes_DiffMonth_Special";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+              
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = Criteria.Month1 });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportProbes>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+
+        public string CheckDate(string FromDate,string ToDate,string ChkDate)
+        {
+            try
+            {             
+                var sql = "Exec CheckDate";
+                var param = new List<DbParameter>();
+
+                sql += " @FromDate " + "= @FromDate";
+                param.Add(new SqlParameter { ParameterName = "@FromDate", Value = FromDate });
+
+
+                sql += ", " + " @ToDate " + "= @ToDate" + ", " + "@ChkDate" + "= @ChkDate";              
+                param.Add(new SqlParameter { ParameterName = "@ToDate", Value = ToDate });
+                param.Add(new SqlParameter { ParameterName = "@ChkDate", Value = ChkDate });
+                
+                return ExcuteScalar(sql, param, ConnectionDAO.Client.ToConnectionString()).ToString();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+        public void CalculateTotalProbes()
+        {
+
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(ConnectionDAO.Client.ToConnectionString());
+                connection.Open();                
+
+                var sql = "Calculate_TotalProbes";
+
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                var param = new List<DbParameter>();
+
+                cmd.Parameters.AddWithValue("@Center", Criteria.CenterName);
+               
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {                   
+                    cmd.Parameters.AddWithValue("@FromDate", Criteria.FromDate);
+                    cmd.Parameters.AddWithValue("@ToDate", Criteria.ToDate);
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    cmd.Parameters.AddWithValue("@Month", Criteria.Month1);
+                }
+               
+                //cmd.Parameters.AddWithValue("@Month2", Criteria.Month2);
+              
+                //cmd.Parameters.AddWithValue("@FromDate2", Criteria.FromDate2);
+                //cmd.Parameters.AddWithValue("@ToDate2", Criteria.ToDate2);
+                cmd.CommandTimeout = 0;
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void ReplaceQATProbes(string center)
+        {
+
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(ConnectionDAO.Client.ToConnectionString());
+                connection.Open();
+                string sql = "Replace_QAT_Probes";
+
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@Center", center));
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public List<ExportViewDeno> FindByCriteriaDenominatorForAll()
+        {
+            try
+            {
+                var sql = "Exec Export_With_DenoForAll";
+                //var sql = "Exec Export_With_DenoForAll_April";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });            
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportViewDeno>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportViewDeno> FindByCriteriaDenominatorForAllSingle()
+        {
+            try
+            {
+                var sql = "Exec Export_With_DenoForAll_GSS";
+                //var sql = "Exec Export_With_DenoForAll_April";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportViewDeno>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportViewDeno> FindByCriteriaDenominatorForAllSingleIGS()
+        {
+            try
+            {
+                var sql = "Exec Export_With_DenoForAll_IGS";
+                //var sql = "Exec Export_With_DenoForAll_April";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = dmonth });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportViewDeno>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<ExportViewDeno> FindByCriteriaDenominatorForAllSpecial()
+        {
+            try
+            {
+                var sql = "Exec Export_With_DenoForAll_Special";
+                //var sql = "Exec Export_With_DenoForAll_April";
+                var param = new List<DbParameter>();
+
+                sql += " @Center " + "= @CenterName";
+                param.Add(new SqlParameter { ParameterName = "@CenterName", Value = Criteria.CenterName });
+
+                if (!string.IsNullOrEmpty(Criteria.FromDate) && !string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    sql += ", " + " @FromDate " + "= @FromDate" + ", " + "@ToDate" + "= @ToDate";
+                    param.Add(new SqlParameter { ParameterName = "@FromDate", Value = Criteria.FromDate });
+                    param.Add(new SqlParameter { ParameterName = "@ToDate", Value = Criteria.ToDate });
+                }
+
+
+                if (!string.IsNullOrEmpty(Criteria.ToDate))
+                {
+                    string dmonth = Criteria.ToDate.Substring(0, 6);
+                    sql += ", " + "@Month" + "= @Month";
+                    param.Add(new SqlParameter { ParameterName = "@Month", Value = Criteria.Month1 });
+                }
+
+                sql += ", " + " @Month2 " + "= @AccMonth2";
+                param.Add(new SqlParameter { ParameterName = "@AccMonth2", Value = Criteria.Month2 });
+
+                sql += ", " + " @FromDate2 " + "= @FromDate2" + ", " + "@ToDate2" + "= @ToDate2";
+                param.Add(new SqlParameter { ParameterName = "@FromDate2", Value = Criteria.FromDate2 });
+                param.Add(new SqlParameter { ParameterName = "@ToDate2", Value = Criteria.ToDate2 });
+
+                return ExcuteStoreQuery<ExportViewDeno>(sql, param, ConnectionDAO.Client.ToConnectionString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+    }
+}

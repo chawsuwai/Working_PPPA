@@ -1,0 +1,185 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using PPP_Project.Base;
+using PPP_Project.Common;
+using PPP_Project.CommonAttributes;
+using PPP_Project.Common.Utility;
+using PPP_Project.Common.Message;
+using PPP_Project.Entity;
+using PPP_Project.Criteria;
+using System.IO;
+using System.Transactions;
+using OfficeOpenXml;
+using PPP_Project.Business;
+
+namespace PPP_Project
+{
+    public partial class AccuracyImport : System.Web.UI.Page
+    {
+        string date;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                var Probes = new Probes();
+                var result = Probes.FindAllBranch();
+
+                for (int i = 0; i < result.Count; i++)
+                {
+                    ddlCenterName.Items.Insert(i, new ListItem(result[i].BranchName, result[i].BranchCode));
+                }
+                var date1 = GeneralUtility.ConvertDisplayDateStringFormat(System.DateTime.Now);
+                date = GeneralUtility.ConvertSystemDateStringFormat(txtImportDate.Text);
+                txtImportDate.Text = date1.Substring(3, 7).ToString();
+            }
+        }
+
+        protected void btnAccImport_Click(object sender, EventArgs e)
+        {
+            var acclist = new List<AccuracyEntity>(); // NEED 1 (first)
+            var userEntity = (UserEntity)Session["ID"];
+            if (txtImportDate.Text != "" && txtImportDate.Text != null)
+            {
+                var center = ddlCenterName.SelectedValue.ToString();
+
+                var accPercent = new AccuracyPercentage().FindByAccPerDate(GeneralUtility.ConvertMonthYearStringFormat(txtImportDate.Text.Trim()), center);
+                if (accPercent.Count() == 0)
+                {
+                    if (FileUpload1.HasFile)
+                    {
+                        if (Path.GetExtension(FileUpload1.FileName) == ".xlsx")
+                        {
+                            ExcelPackage package = new ExcelPackage(FileUpload1.FileContent); // NEED 2 (first) 
+                            ExcelWorksheet workSheet = package.Workbook.Worksheets.First(); // NEED 2 (first)     
+                            //workSheet.DeleteRow(1); // NEED 3 (first)          
+                            Acc_BindBusiness(acclist, workSheet); // NEED 4 (first)
+
+                        }
+                    }
+
+                    #region Save Accuracy (first)
+
+                    AccuracyPercentage itemBusiness = new AccuracyPercentage();
+
+                    using (TransactionScope Scope = new TransactionScope())
+                    {
+                        try
+                        {
+                            foreach (var v in acclist)
+                            {
+                                itemBusiness.Entity = v;
+                                itemBusiness.Save();
+                            }
+                            itemBusiness.ReplaceQATAccuracy(center);
+                            Scope.Complete();
+                           
+                            MessageBox.MessageShow(this.GetType(), "Project Accuracy Import Successfully!.", ClientScript);
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Redirect("error.aspx");
+                            throw ex;
+                        }
+
+                    }
+
+                    #endregion
+                }
+                else
+                {
+                    MessageBox.MessageShow(this.GetType(), "This Excel File has already been Imported!", ClientScript);
+                }
+            }
+            else
+            {
+                MessageBox.MessageShow(this.GetType(), "Please Choose Import Date!.", ClientScript);
+            }
+        }
+
+        private void Acc_BindBusiness(List<AccuracyEntity> denolist, ExcelWorksheet ws)
+        {
+             var userEntity = (UserEntity)Session["ID"];
+            for (var rowNumber = 1; rowNumber <= ws.Dimension.End.Row; rowNumber++)
+            {
+                var accEntity = new AccuracyEntity();
+
+                accEntity.ID = GeneralUtility.GeneratedKey;
+
+                #region Populate Excel data
+
+                for (var colNumber = 1; colNumber <= ws.Dimension.End.Column; colNumber++)
+                {
+
+                    try
+                    {
+                        if (true)
+                        {
+                            switch (colNumber)
+                            {
+                                #region
+                                case 1:
+                                    accEntity.QAT = Convert.ToString(ws.Cells[rowNumber, colNumber].Value);
+                                    break;
+                                case 2:
+                                   // accEntity.AccuracyPercent
+                                    //#REF!
+
+                                    if (Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() != "" && Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() != "-" && Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() != null && Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() != "#DIV/0!" && Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() != "#REF!")
+                                    {                                        
+                                      
+                                        var orgPercent = ws.Cells[rowNumber, colNumber].Value.ToString().Trim(new[] { '%' });
+                                        if (orgPercent == "100")
+                                        {
+                                            accEntity.AccuracyPercent = Convert.ToDecimal(orgPercent);
+                                        }
+                                        else
+                                        {
+                                            accEntity.AccuracyPercent = Convert.ToDecimal(orgPercent)*100;
+                                        }
+                                    }
+                                    //if (orgPercent.Length != 0 && orgPercent!="0")
+                                    //{
+                                    //    var percent= orgPercent.Substring(0, orgPercent.Length-1);
+                                    //    accEntity.AccuracyPercent = Convert.ToDecimal(percent);
+                                    //}
+                                    //accEntity.AccuracyPercent = Convert.ToDecimal(Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() == "" || Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() == "-" || Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() == null ? 0 : ws.Cells[rowNumber, colNumber].Value);
+                                    break;
+                              
+                                //case 9:
+                                //    denoEntity.AMERICAS_DEMO = Convert.ToInt32(Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() == "" || Convert.ToString(ws.Cells[rowNumber, colNumber].Value).Trim() == null ? 0 : ws.Cells[rowNumber, colNumber].Value);
+                                //    break;                               
+
+                                default: break;
+
+                                #endregion
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("error.aspx");
+                        throw ex;
+                    }
+                }
+
+
+                accEntity.CreatedDate = GeneralUtility.ConvertSystemDateStringFormat(txtImportDate.Text.Trim());//GeneralUtility.ConvertSystemDateStringFormat(System.DateTime.Now);              
+                accEntity.AccMonth = GeneralUtility.ConvertMonthYearStringFormat(txtImportDate.Text);
+                accEntity.Center =ddlCenterName.SelectedValue.ToString();
+                //probesEntity.ImportTime = GeneralUtility.ConvertSystemTimeFormat(System.DateTime.Now);
+                accEntity.Createdby = userEntity.ID;
+
+
+                denolist.Add(accEntity);
+
+                #endregion
+            }
+        }
+   
+    }
+}

@@ -1,0 +1,827 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace PPP_Project.Criteria
+{
+    public class ExportScenes
+    {
+        public string QAT { get; set; }
+
+        public string Center { get; set; }
+
+        public int TotalScenes { get; set; }
+
+        public decimal AvgsecondsperScenes { get; set; }
+
+        public decimal ABICA { get; set; }
+
+        public decimal ABICA_Scenes { get; set; }
+
+        public decimal ABITAMSUS_PROD { get; set; }
+
+        public decimal ABITAMSUS_PROD_Scenes { get; set; }
+
+        public decimal AMERICAS_DEMO { get; set; }
+
+        public decimal AMERICAS_DEMO_Scenes { get; set; }
+
+        public decimal BATRU { get; set; }
+
+        public decimal BATRU_Scenes { get; set; }
+
+        public decimal BIKR { get; set; }
+
+        public decimal BIKR_Scenes { get; set; }
+
+        public decimal BIMY { get; set; }
+
+        public decimal BIMY_Scenes { get; set; }
+
+        public decimal BIPH { get; set; }
+
+        public decimal BIPH_Scenes { get; set; }
+
+        public decimal BISEASK { get; set; }
+
+        public decimal BISEASK_Scenes { get; set; }
+
+        public decimal BITH { get; set; }
+
+        public decimal BITH_Scenes { get; set; }
+
+        public decimal BIVN { get; set; }
+
+        public decimal BIVN_Scenes { get; set; }
+
+        public decimal BPAU { get; set; }
+
+        public decimal BPAU_Scenes { get; set; }
+
+        public decimal BRODMANN { get; set; }
+
+        public decimal BRODMANN_Scenes { get; set; }
+
+        public decimal CARREFOURAR { get; set; }
+
+        public decimal CARREFOURAR_Scenes { get; set; }
+
+        public decimal CCAAU { get; set; }
+
+        public decimal CCAAU_Scenes { get; set; }
+
+        public decimal CCABIZA { get; set; }
+
+        public decimal CCABIZA_Scenes { get; set; }
+
+        public decimal CCANZ { get; set; }
+
+        public decimal CCANZ_Scenes { get; set; }
+
+        public decimal CCBOTTLERSUS { get; set; }
+
+        public decimal CCBOTTLERSUS_Scenes { get; set; }
+
+        public decimal CCBR_PROD { get; set; }
+
+        public decimal CCBR_PROD_Scenes { get; set; }
+
+        public decimal CCJP { get; set; }
+
+        public decimal CCJP_Scenes { get; set; }
+
+        public decimal CCKH { get; set; }
+
+        public decimal CCKH_Scenes { get; set; }
+
+        public decimal CCKR { get; set; }
+
+        public decimal CCKR_Scenes { get; set; }
+
+        public decimal CCMY { get; set; }
+
+        public decimal CCMY_Scenes { get; set; }
+
+        public decimal CCPH { get; set; }
+
+        public decimal CCPH_Scenes { get; set; }
+
+        public decimal CCRPR_PROD { get; set; }
+
+        public decimal CCRPR_PROD_Scenes { get; set; }
+
+        public decimal CCRU { get; set; }
+
+        public decimal CCRU_Scenes { get; set; }
+
+        public decimal CCTH { get; set; }
+
+        public decimal CCTH_Scenes { get; set; }
+
+        public decimal CCTH_UAT { get; set; }
+
+        public decimal CCTH_UAT_Scenes { get; set; }
+
+        public decimal CCTRADMX { get; set; }
+
+        public decimal CCTRADMX_Scenes { get; set; }
+
+        public decimal CCUS { get; set; }
+
+        public decimal CCUS_Scenes { get; set; }
+
+        public decimal CCZA { get; set; }
+
+        public decimal CCZA_Scenes { get; set; }
+
+        public decimal CEREBOSTH { get; set; }
+
+        public decimal CEREBOSTH_Scenes { get; set; }
+
+        public decimal CROWDSOURCE { get; set; }
+
+        public decimal CROWDSOURCE_Scenes { get; set; }
+
+        public decimal DIAGEOAU { get; set; }
+
+        public decimal DIAGEOAU_Scenes { get; set; }
+
+        public decimal DIAGEOBR { get; set; }
+
+        public decimal DIAGEOBR_Scenes { get; set; }
+
+        public decimal DIAGEOGR { get; set; }
+
+        public decimal DIAGEOGR_Scenes { get; set; }
+
+        public decimal DIAGEOIE { get; set; }
+
+        public decimal DIAGEOIE_Scenes { get; set; }
+
+        public decimal DIAGEOKE { get; set; }
+
+        public decimal DIAGEOKE_Scenes { get; set; }
+
+        public decimal DIAGEOMX { get; set; }
+
+        public decimal DIAGEOMX_Scenes { get; set; }
+
+        public decimal DIAGEOPT { get; set; }
+
+        public decimal DIAGEOPT_Scenes { get; set; }
+
+        public decimal DIAGEOTW { get; set; }
+
+        public decimal DIAGEOTW_Scenes { get; set; }
+
+        public decimal DIAGEOUK { get; set; }
+
+        public decimal DIAGEOUK_Scenes { get; set; }
+
+        public decimal DIAGEOZA { get; set; }
+
+        public decimal DIAGEOZA_Scenes { get; set; }
+
+        public decimal EMEA_DEMO { get; set; }
+
+        public decimal EMEA_DEMO_Scenes { get; set; }
+
+        public decimal FERREROIT { get; set; }
+
+        public decimal FERREROIT_Scenes { get; set; }
+
+        public decimal GILLETTEUS { get; set; }
+
+        public decimal GILLETTEUS_Scenes { get; set; }
+
+        public decimal GOOGLEUS { get; set; }
+
+        public decimal GOOGLEUS_Scenes { get; set; }
+
+        public decimal HBCDE { get; set; }
+
+        public decimal HBCDE_Scenes { get; set; }
+
+        public decimal HEINEKENCN { get; set; }
+
+        public decimal HEINEKENCN_Scenes { get; set; }
+
+        public decimal HEINEKENUS_PROD { get; set; }
+
+        public decimal HEINEKENUS_PROD_Scenes { get; set; }
+
+        public decimal HEINZCR { get; set; }
+
+        public decimal HEINZCR_Scenes { get; set; }
+
+        public decimal INBEVAR { get; set; }
+
+        public decimal INBEVAR_Scenes { get; set; }
+
+        public decimal INBEVBE { get; set; }
+
+        public decimal INBEVBE_Scenes { get; set; }
+
+        public decimal INBEVBE_SAND { get; set; }
+
+        public decimal INBEVBE_SAND_Scenes { get; set; }
+
+        public decimal INBEVBR { get; set; }
+
+        public decimal INBEVBR_Scenes { get; set; }
+
+        public decimal INBEVBR_ONTRADE { get; set; }
+
+        public decimal INBEVBR_ONTRADE_Scenes { get; set; }
+
+        public decimal INBEVCL { get; set; }
+
+        public decimal INBEVCL_Scenes { get; set; }
+
+        public decimal INBEVCN { get; set; }
+
+        public decimal INBEVCN_Scenes { get; set; }
+
+        public decimal INBEVCOOLERAR { get; set; }
+
+        public decimal INBEVCOOLERAR_Scenes { get; set; }
+
+        public decimal INBEVCOOLERBR { get; set; }
+
+        public decimal INBEVCOOLERBR_Scenes { get; set; }
+
+        public decimal INBEVCOOLERUS { get; set; }
+
+        public decimal INBEVCOOLERUS_Scenes { get; set; }
+
+        public decimal INBEVFR { get; set; }
+
+        public decimal INBEVFR_Scenes { get; set; }
+
+        public decimal INBEVLU { get; set; }
+
+        public decimal INBEVLU_Scenes { get; set; }
+
+        public decimal INBEVLU_SAND { get; set; }
+
+        public decimal INBEVLU_SAND_Scenes { get; set; }
+
+        public decimal INBEVMX { get; set; }
+
+        public decimal INBEVMX_Scenes { get; set; }
+
+        public decimal INBEVNL { get; set; }
+
+        public decimal INBEVNL_Scenes { get; set; }
+
+        public decimal INBEVNL_SAND { get; set; }
+
+        public decimal INBEVNL_SAND_Scenes { get; set; }
+
+        public decimal INBEVPY { get; set; }
+
+        public decimal INBEVPY_Scenes { get; set; }
+
+        public decimal INBEVTRADMX { get; set; }
+
+        public decimal INBEVTRADMX_Scenes { get; set; }
+
+        public decimal INBEVUS { get; set; }
+
+        public decimal INBEVUS_Scenes { get; set; }
+
+        public decimal JTIUA { get; set; }
+
+        public decimal JTIUA_Scenes { get; set; }
+
+        public decimal KCMY { get; set; }
+
+        public decimal KCMY_Scenes { get; set; }
+
+        public decimal KCUS { get; set; }
+
+        public decimal KCUS_Scenes { get; set; }
+
+        public decimal KEURIGCA { get; set; }
+
+        public decimal KEURIGCA_Scenes { get; set; }
+
+        public decimal LABATTPLNOPTCA { get; set; }
+
+        public decimal LABATTPLNOPTCA_Scenes { get; set; }
+
+        public decimal LAVAZZAAT { get; set; }
+
+        public decimal LAVAZZAAT_Scenes { get; set; }
+
+        public decimal LAVAZZAAU { get; set; }
+
+        public decimal LAVAZZAAU_Scenes { get; set; }
+
+        public decimal LAVAZZABE { get; set; }
+
+        public decimal LAVAZZABE_Scenes { get; set; }
+
+        public decimal LAVAZZABG { get; set; }
+
+        public decimal LAVAZZABG_Scenes { get; set; }
+
+        public decimal LAVAZZACA { get; set; }
+
+        public decimal LAVAZZACA_Scenes { get; set; }
+
+        public decimal LAVAZZACH { get; set; }
+
+        public decimal LAVAZZACH_Scenes { get; set; }
+
+        public decimal LAVAZZACL { get; set; }
+
+        public decimal LAVAZZACL_Scenes { get; set; }
+
+        public decimal LAVAZZACN { get; set; }
+
+        public decimal LAVAZZACN_Scenes { get; set; }
+
+        public decimal LAVAZZACZ { get; set; }
+
+        public decimal LAVAZZACZ_Scenes { get; set; }
+
+        public decimal LAVAZZADE { get; set; }
+
+        public decimal LAVAZZADE_Scenes { get; set; }
+
+        public decimal LAVAZZADK { get; set; }
+
+        public decimal LAVAZZADK_Scenes { get; set; }
+
+        public decimal LAVAZZAEE { get; set; }
+
+        public decimal LAVAZZAEE_Scenes { get; set; }
+
+        public decimal LAVAZZAES { get; set; }
+
+        public decimal LAVAZZAES_Scenes { get; set; }
+
+        public decimal LAVAZZAFR { get; set; }
+
+        public decimal LAVAZZAFR_Scenes { get; set; }
+
+        public decimal LAVAZZAGR { get; set; }
+
+        public decimal LAVAZZAGR_Scenes { get; set; }
+
+        public decimal LAVAZZAHK { get; set; }
+
+        public decimal LAVAZZAHK_Scenes { get; set; }
+
+        public decimal LAVAZZAHR { get; set; }
+
+        public decimal LAVAZZAHR_Scenes { get; set; }
+
+        public decimal LAVAZZAIL { get; set; }
+
+        public decimal LAVAZZAIL_Scenes { get; set; }
+
+        public decimal LAVAZZAIT { get; set; }
+
+        public decimal LAVAZZAIT_Scenes { get; set; }
+
+        public decimal LAVAZZAJP { get; set; }
+
+        public decimal LAVAZZAJP_Scenes { get; set; }
+
+        public decimal LAVAZZAKR { get; set; }
+
+        public decimal LAVAZZAKR_Scenes { get; set; }
+
+        public decimal LAVAZZALT { get; set; }
+
+        public decimal LAVAZZALT_Scenes { get; set; }
+
+        public decimal LAVAZZALU { get; set; }
+
+        public decimal LAVAZZALU_Scenes { get; set; }
+
+        public decimal LAVAZZALV { get; set; }
+
+        public decimal LAVAZZALV_Scenes { get; set; }
+
+        public decimal LAVAZZAMA { get; set; }
+
+        public decimal LAVAZZAMA_Scenes { get; set; }
+
+        public decimal LAVAZZANL { get; set; }
+
+        public decimal LAVAZZANL_Scenes { get; set; }
+
+        public decimal LAVAZZAPL { get; set; }
+
+        public decimal LAVAZZAPL_Scenes { get; set; }
+
+        public decimal LAVAZZARO { get; set; }
+
+        public decimal LAVAZZARO_Scenes { get; set; }
+
+        public decimal LAVAZZARU { get; set; }
+
+        public decimal LAVAZZARU_Scenes { get; set; }
+
+        public decimal LAVAZZASA { get; set; }
+
+        public decimal LAVAZZASA_Scenes { get; set; }
+
+        public decimal LAVAZZASE { get; set; }
+
+        public decimal LAVAZZASE_Scenes { get; set; }
+
+        public decimal LAVAZZASG { get; set; }
+
+        public decimal LAVAZZASG_Scenes { get; set; }
+
+        public decimal LAVAZZAUAE { get; set; }
+
+        public decimal LAVAZZAUAE_Scenes { get; set; }
+
+        public decimal LAVAZZAUK { get; set; }
+
+        public decimal LAVAZZAUK_Scenes { get; set; }
+
+        public decimal LAVAZZAUS { get; set; }
+
+        public decimal LAVAZZAUS_Scenes { get; set; }
+
+        public decimal LAVAZZAZA { get; set; }
+
+        public decimal LAVAZZAZA_Scenes { get; set; }
+
+        public decimal LRSUK { get; set; }
+
+        public decimal LRSUK_Scenes { get; set; }
+
+        public decimal MARSBR { get; set; }
+
+        public decimal MARSBR_Scenes { get; set; }
+
+        public decimal MARSIN { get; set; }
+
+        public decimal MARSIN_Scenes { get; set; }
+
+        public decimal MARSIN_OLD { get; set; }
+
+        public decimal MARSIN_OLD_Scenes { get; set; }
+
+        public decimal MARSRU_PROD { get; set; }
+
+        public decimal MARSRU_PROD_Scenes { get; set; }
+
+        public decimal MAYORAID { get; set; }
+
+        public decimal MAYORAID_Scenes { get; set; }
+
+        public decimal MJNCN { get; set; }
+
+        public decimal MJNCN_Scenes { get; set; }
+
+        public decimal MOLSONCOOLERHN { get; set; }
+
+        public decimal MOLSONCOOLERHN_Scenes { get; set; }
+
+        public decimal MOLSONCOOLERHR { get; set; }
+
+        public decimal MOLSONCOOLERHR_Scenes { get; set; }
+
+        public decimal MOLSONCOORSUK { get; set; }
+
+        public decimal MOLSONCOORSUK_Scenes { get; set; }
+
+        public decimal NESTLEUK { get; set; }
+
+        public decimal NESTLEUK_Scenes { get; set; }
+
+        public decimal NIVEAUK { get; set; }
+
+        public decimal NIVEAUK_Scenes { get; set; }
+
+        public decimal NRF2017_DEMO { get; set; }
+
+        public decimal NRF2017_DEMO_Scenes { get; set; }
+
+        public decimal ONE_AMERICAS_DEMO { get; set; }
+
+        public decimal ONE_AMERICAS_DEMO_Scenes { get; set; }
+
+        public decimal ONE_APAC_DEMO { get; set; }
+
+        public decimal ONE_APAC_DEMO_Scenes { get; set; }
+
+        public decimal PEPSICOBR { get; set; }
+
+        public decimal PEPSICOBR_Scenes { get; set; }
+
+        public decimal PNGAU { get; set; }
+
+        public decimal PNGAU_Scenes { get; set; }
+
+        public decimal PNGAU_OLD { get; set; }
+
+        public decimal PNGAU_OLD_Scenes { get; set; }
+
+        public decimal PNGCAREUS { get; set; }
+
+        public decimal PNGCAREUS_Scenes { get; set; }
+
+        public decimal PNGCN_PROD { get; set; }
+
+        public decimal PNGCN_PROD_Scenes { get; set; }
+
+        public decimal PNGJP { get; set; }
+
+        public decimal PNGJP_Scenes { get; set; }
+
+        public decimal PNGJP_OLD { get; set; }
+
+        public decimal PNGJP_OLD_Scenes { get; set; }
+
+        public decimal PNGUS { get; set; }
+
+        public decimal PNGUS_Scenes { get; set; }
+
+        public decimal PNGUSEPISODIC { get; set; }
+
+        public decimal PNGUSEPISODIC_Scenes { get; set; }
+
+        public decimal RBUS { get; set; }
+
+        public decimal RBUS_Scenes { get; set; }
+
+        public decimal RE_XSUITE_DEMO { get; set; }
+
+        public decimal RE_XSUITE_DEMO_Scenes { get; set; }
+
+        public decimal REPNGCN_DEMO { get; set; }
+
+        public decimal REPNGCN_DEMO_Scenes { get; set; }
+
+        public decimal RI_DEMO { get; set; }
+
+        public decimal RI_DEMO_Scenes { get; set; }
+
+        public decimal RI_DIAGEOAU { get; set; }
+
+        public decimal RI_DIAGEOAU_Scenes { get; set; }
+
+        public decimal RIALCBEVUK_PROD { get; set; }
+
+        public decimal RIALCBEVUK_PROD_Scenes { get; set; }
+
+        public decimal RICOFFEEUS { get; set; }
+
+        public decimal RICOFFEEUS_Scenes { get; set; }
+
+        public decimal RINIELSENUS { get; set; }
+
+        public decimal RINIELSENUS_Scenes { get; set; }
+
+        public decimal RIPETCAREUK_PROD { get; set; }
+
+        public decimal RIPETCAREUK_PROD_Scenes { get; set; }
+
+        public decimal RIUS { get; set; }
+
+        public decimal RIUS_Scenes { get; set; }
+
+        public decimal RIUS_DEV { get; set; }
+
+        public decimal RIUS_DEV_Scenes { get; set; }
+
+        public decimal RNBDE { get; set; }
+
+        public decimal RNBDE_Scenes { get; set; }
+
+        public decimal SMARTCOOLER_POC2 { get; set; }
+
+        public decimal SMARTCOOLER_POC2_Scenes { get; set; }
+
+        public decimal SMARTCOOLER_TRN { get; set; }
+
+        public decimal SMARTCOOLER_TRN_Scenes { get; set; }
+
+        public decimal SMARTCOOLER2_TRN { get; set; }
+
+        public decimal SMARTCOOLER2_TRN_Scenes { get; set; }
+
+        public decimal SOLARBR { get; set; }
+
+        public decimal SOLARBR_Scenes { get; set; }
+
+        public decimal STATIC_CAMERA_DEMO { get; set; }
+
+        public decimal STATIC_CAMERA_DEMO_Scenes { get; set; }
+
+        public decimal SWIRECN { get; set; }
+
+        public decimal SWIRECN_Scenes { get; set; }
+
+        public decimal SWIREREDCN { get; set; }
+
+        public decimal SWIREREDCN_Scenes { get; set; }
+
+        public decimal TNUVAIL { get; set; }
+
+        public decimal TNUVAIL_Scenes { get; set; }
+
+        public decimal TRAXDEMO_TS_PROD { get; set; }
+
+        public decimal TRAXDEMO_TS_PROD_Scenes { get; set; }
+
+        public decimal TWEAU { get; set; }
+
+        public decimal TWEAU_Scenes { get; set; }
+
+        public decimal RI_DEMO2 { get; set; }
+
+        public decimal RI_DEMO2_Scenes { get; set; }
+
+        public decimal COMPASSCCH_SAND { get; set; }
+
+        public decimal COMPASSCCH_SAND_Scenes { get; set; }
+
+        public decimal LAVAZZAIT_SAND { get; set; }
+
+        public decimal LAVAZZAIT_SAND_Scenes { get; set; }
+
+        public decimal INBEVUS_STG { get; set; }
+
+        public decimal INBEVUS_STG_Scenes { get; set; }
+
+        public decimal LAVAZZAFR_SAND { get; set; }
+
+        public decimal LAVAZZAFR_SAND_Scenes { get; set; }
+
+        public decimal INBEVBE_SAND2 { get; set; }
+
+        public decimal INBEVBE_SAND2_Scenes { get; set; }
+
+        public decimal INBEVLU_SAND2 { get; set; }
+
+        public decimal INBEVLU_SAND2_Scenes { get; set; }
+
+        public decimal INBEVNL_SAND2 { get; set; }
+
+        public decimal INBEVNL_SAND2_Scenes { get; set; }
+
+
+        public decimal B2BRU_Scenes { get; set; }
+
+        public decimal BRMUS_Scenes { get; set; }
+
+        public decimal CBCIL_Scenes { get; set; }
+
+        public decimal CCCOOLERMX_Scenes { get; set; }
+
+        public decimal DIAGEOAR_Scenes { get; set; }
+
+        public decimal DIAGEOBENELUX_Scenes { get; set; }
+
+        public decimal DIAGEOCH_Scenes { get; set; }
+
+        public decimal DIAGEOGA_Scenes { get; set; }
+
+        public decimal DIAGEOGTR_Scenes { get; set; }
+
+        public decimal DIAGEONORDICS_Scenes { get; set; }
+
+        public decimal DIAGEOUS_Scenes { get; set; }
+
+        public decimal FERREROEXTIT_Scenes { get; set; }
+
+        public decimal GOOGLEHK_Scenes { get; set; }
+
+        public decimal HEINEKENPILOTCN_Scenes { get; set; }
+
+        public decimal IMBO_Scenes { get; set; }
+
+        public decimal INBEVCI_Scenes { get; set; }
+
+        public decimal INBEVCNTT_Scenes { get; set; }
+
+        public decimal INBEVCO_Scenes { get; set; }
+
+        public decimal INBEVZA_Scenes { get; set; }
+
+        public decimal INORU_Scenes { get; set; }
+
+        public decimal JJSP_Scenes { get; set; }
+
+        public decimal JNJES_Scenes { get; set; }
+
+        public decimal JNJUK_Scenes { get; set; }
+
+        public decimal JRIJP_Scenes { get; set; }
+
+        public decimal KELLOGSUSPOC_Scenes { get; set; }
+
+        public decimal KRAFTUS_Scenes { get; set; }
+
+        public decimal MARS_CHOCO_RU_Scenes { get; set; }
+
+        public decimal MHUK_Scenes { get; set; }
+
+        public decimal MILLERCOORS_Scenes { get; set; }
+
+        public decimal MOLSONONTRADEUK_Scenes { get; set; }
+
+        public decimal MYCHEMISTAU_Scenes { get; set; }
+
+        public decimal NESTLEROAMLERUK_Scenes { get; set; }
+
+        public decimal NRF2018_Scenes { get; set; }
+
+        public decimal PENAFLORAR_Scenes { get; set; }
+
+        public decimal PMIUA_Scenes { get; set; }
+
+        public decimal PNGAMERICA_Scenes { get; set; }
+
+        public decimal PNGRO_Scenes { get; set; }
+
+        public decimal RBAU_Scenes { get; set; }
+
+        public decimal RBCA_Scenes { get; set; }
+
+        public decimal RBDK_Scenes { get; set; }
+
+        public decimal RBMANUAL_Scenes { get; set; }
+
+        public decimal RINIELSENRU_MARS_Scenes { get; set; }
+
+        public decimal RINIELSENUSQI_Scenes { get; set; }
+
+        public decimal RIPANELCN_Scenes { get; set; }
+
+        public decimal RISPARKWINEDE_Scenes { get; set; }
+
+        public decimal SANOFIAE_Scenes { get; set; }
+
+        public decimal SANOFIAU_Scenes { get; set; }
+
+        public decimal SANOFIHK_Scenes { get; set; }
+
+        public decimal SANOFIKH_Scenes { get; set; }
+
+        public decimal SANOFINZ_Scenes { get; set; }
+
+        public decimal SANOFIRU_Scenes { get; set; }
+
+        public decimal SANOFITR_Scenes { get; set; }
+
+        public decimal SANOFIUA_Scenes { get; set; }
+
+        public decimal SHUFERSALIL_Scenes { get; set; }
+
+        public decimal SUNTORYJP_Scenes { get; set; }
+
+        public decimal TESCOTH_Scenes { get; set; }
+
+        public decimal TESCOUK_Scenes { get; set; }
+
+        public decimal TRAXROBOT_Scenes { get; set; }
+
+        public decimal XSUITE_SHOWCASE_Scenes { get; set; }
+
+
+        public decimal ABIUS_Scenes { get; set; }
+
+        public decimal BADGERROBOT_Scenes { get; set; }
+
+        public decimal CUBAU_Scenes { get; set; }
+
+        public decimal DIAGEORU_Scenes { get; set; }
+
+        public decimal GFKFR_Scenes { get; set; }
+
+        public decimal JNJIT_Scenes { get; set; }
+
+        public decimal LIGHTTRAX_Scenes { get; set; }
+
+        public decimal LIGHTTRAXOFFLINE_Scenes { get; set; }
+
+        public decimal RINIELSENFR_Scenes { get; set; }
+
+        public decimal SANOFIKZ_Scenes { get; set; }
+
+        public decimal SANOFILB_Scenes { get; set; }
+
+        public decimal SANOFISA_Scenes { get; set; }
+
+        public decimal SANOFIZA_Scenes { get; set; }
+
+        public decimal WATSONSHK_Scenes { get; set; }
+
+        public decimal KELLOGGUS_Scenes { get; set; }
+
+        public decimal TSINGTAOBEERCN_Scenes { get; set; }
+
+    }
+}

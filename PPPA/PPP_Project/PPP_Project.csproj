@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F537285B-865D-49B7-8797-98D3BDC8185C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PPP_Project</RootNamespace>
+    <AssemblyName>PPP_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>G:\Chaw Su Wai\WorkingPPPA\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelWriter">
+      <HintPath>G:\Chaw Su Wai\WorkingPPPA\ExcelWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccuracyImport.aspx" />
+    <Content Include="AccuracyPercentRateSetup.aspx" />
+    <Content Include="assets\jquery-file-upload\cors\postmessage.html" />
+    <Content Include="assets\jquery-file-upload\cors\result.html" />
+    <Content Include="assets\jquery-file-upload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="assets\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="assets\jquery-file-upload\css\style.css" />
+    <Content Include="assets\jquery-file-upload\img\loading.gif" />
+    <Content Include="assets\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="assets\jquery-file-upload\index.html" />
+    <Content Include="assets\jquery-file-upload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="assets\jquery-file-upload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="assets\jquery-file-upload\js\jquery.fileupload-fp.js" />
+    <Content Include="assets\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="assets\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="assets\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="assets\jquery-file-upload\js\main.js" />
+    <Content Include="assets\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="assets\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="assets\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="assets\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="assets\jquery-file-upload\server\gae-go\static\favicon.ico" />
+    <Content Include="assets\jquery-file-upload\server\gae-go\static\robots.txt" />
+    <Content Include="assets\jquery-file-upload\server\gae-python\static\favicon.ico" />
+    <Content Include="assets\jquery-file-upload\server\gae-python\static\robots.txt" />
+    <Content Include="assets\jquery-file-upload\server\node\server.js" />
+    <Content Include="assets\jquery-file-upload\server\php\files\style-responsive.css" />
+    <Content Include="assets\jquery-file-upload\test\index.html" />
+    <Content Include="assets\jquery-file-upload\test\test.js" />
+    <Content Include="assets\jquery-knob\index.html" />
+    <Content Include="assets\jquery-knob\js\jquery.knob.js" />
+    <Content Include="assets\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="assets\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="assets\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\jquery-ui\jquery-ui-1.10.1.custom.css" />
+    <Content Include="assets\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="assets\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="assets\jquery-ui\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="assets\morris.js-0.4.3\examples\area-as-line.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\area.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\bar-colors.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\bar-no-axes.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\bar.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\days.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\decimal-custom-hover.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\diagonal-xlabels-bar.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\diagonal-xlabels.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\donut-colors.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\donut-formatter.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\donut.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\dst.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\events.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\goals.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\lib\example.css" />
+    <Content Include="assets\morris.js-0.4.3\examples\lib\example.js" />
+    <Content Include="assets\morris.js-0.4.3\examples\lib\prettify.css" />
+    <Content Include="assets\morris.js-0.4.3\examples\lib\prettify.js" />
+    <Content Include="assets\morris.js-0.4.3\examples\months-no-smooth.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\negative.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\no-grid.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\non-continuous.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\non-date.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\quarters.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\stacked_bars.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\timestamps.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\updating.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\weeks.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\years.html" />
+    <Content Include="assets\morris.js-0.4.3\examples\_template.html" />
+    <Content Include="assets\morris.js-0.4.3\grunt.js" />
+    <Content Include="assets\morris.js-0.4.3\morris.css" />
+    <Content Include="assets\morris.js-0.4.3\morris.js" />
+    <Content Include="assets\morris.js-0.4.3\morris.min.js" />
+    <Content Include="assets\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\specs.html" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\chai-1.3.0.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\chai-jquery-1.1.0.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\jquery-1.8.2.min.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\mocha-1.6.0.css" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\mocha-1.6.0.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\raphael-2.1.0.min.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\sinon-1.5.0.js" />
+    <Content Include="assets\morris.js-0.4.3\spec\vendor\sinon-chai-2.1.2.js" />
+    <Content Include="CancelImport.aspx" />
+    <Content Include="css\bootstrap-chosen.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\chosen-sprite%402x.png" />
+    <Content Include="css\chosen-sprite.png" />
+    <Content Include="css\elegant-icons-style.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery-jvectormap-1.2.2.css" />
+    <Content Include="css\jquery-ui-1.10.4.min.css" />
+    <Content Include="css\line-icons.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\style-responsive.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\widgets.css" />
+    <Content Include="DateTimePicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="DateTimePicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="DateTimePicker\jquery-1.8.3.min.js" />
+    <Content Include="DateTimePicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="DateTimePicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ar.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.az.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.bn.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ee.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.hy.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ka.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ko.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.no.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="DateTimePicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Demo.aspx" />
+    <Content Include="DenominatorImport.aspx" />
+    <Content Include="DenominatorImportForAllProjectDaily.aspx" />
+    <Content Include="error.aspx" />
+    <Content Include="Excel_Import.aspx" />
+    <Content Include="Export_Accuracy_3PA_GSS.aspx" />
+    <Content Include="Export_Accuracy_3PA_Org.aspx" />
+    <Content Include="Export_Accuracy_Above_96.aspx" />
+    <Content Include="Export_Accuracy_Above_GSS.aspx" />
+    <Content Include="Export_Accuracy_Under_96.aspx" />
+    <Content Include="Export_Accuracy_Under_GSS.aspx" />
+    <Content Include="Export_List_Without_Deno.aspx" />
+    <Content Include="Export_List_With_Deno.aspx" />
+    <Content Include="Export_List_With_Single.aspx" />
+    <Content Include="Export_List_With_Single_IGS.aspx" />
+    <Content Include="Export_List_With_Special.aspx" />
+    <Content Include="Export_ProjectName.aspx" />
+    <Content Include="Export_QAT.aspx" />
+    <Content Include="Export_TicTac.aspx" />
+    <Content Include="fonts\ElegantIcons.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Home.aspx" />
+    <Content Include="img\arrow-up.png" />
+    <Content Include="img\chart-texture.jpg" />
+    <Content Include="img\customSelect-arrow.gif" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\icons\glyphicons-halflings.png" />
+    <Content Include="img\icons\line-icon-c.png" />
+    <Content Include="img\icons\line-icon-hover.png" />
+    <Content Include="img\icons\line-icon.png" />
+    <Content Include="img\icons\search-line-icon.png" />
+    <Content Include="img\icons\social.png" />
+    <Content Include="img\icons\weather-hover.png" />
+    <Content Include="img\icons\weather.png" />
+    <Content Include="img\left-arrow.png" />
+    <Content Include="img\logo-big.png" />
+    <Content Include="img\right-arrow.png" />
+    <Content Include="img\search-icon.jpg" />
+    <Content Include="Import_ProbesList.aspx" />
+    <Content Include="JobsImport_List2.aspx" />
+    <Content Include="js\additional-methods.min.js" />
+    <Content Include="js\base.js" />
+    <Content Include="js\bootstrap-switch.js" />
+    <Content Include="js\bootstrap-wysiwyg-custom.js" />
+    <Content Include="js\bootstrap-wysiwyg.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\chosen.jquery.js" />
+    <Content Include="js\dynamic-table.js" />
+    <Content Include="js\excanvas.min.js" />
+    <Content Include="js\form-component.js" />
+    <Content Include="js\form-validation-script.js" />
+    <Content Include="js\ga.js" />
+    <Content Include="js\gdp-data.js" />
+    <Content Include="js\gritter.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="js\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="js\jquery-ui-1.10.4.min.js" />
+    <Content Include="js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="js\jquery.autosize.min.js" />
+    <Content Include="js\jquery.customSelect.min.js" />
+    <Content Include="js\jquery.flot.pie.js" />
+    <Content Include="js\jquery.hotkeys.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.localscroll.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.placeholder.min.js" />
+    <Content Include="js\jquery.rateit.min.js" />
+    <Content Include="js\jquery.scrollTo.min.js" />
+    <Content Include="js\jquery.slimscroll.min.js" />
+    <Content Include="js\jquery.smartWizard.js" />
+    <Content Include="js\jquery.sparkline-11.js" />
+    <Content Include="js\jquery.sparkline.js" />
+    <Content Include="js\jquery.stepy.js" />
+    <Content Include="js\jquery.tagsinput.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\lte-ie7.js" />
+    <Content Include="js\morris-script.js" />
+    <Content Include="js\morris.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\sliders.js" />
+    <Content Include="js\sparkline-chart.js" />
+    <Content Include="js\sparklines.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="ProbesListwithDenimonator.aspx" />
+    <Content Include="ProbesListwithoutDenimonator.aspx" />
+    <Content Include="ProbesQtySetup.aspx" />
+    <Content Include="ProbesRangeSetup.aspx" />
+    <Content Include="ProbesRateSetup.aspx" />
+    <Content Include="ProjectDenominatorList.aspx" />
+    <Content Include="ProjectDenominatorMonthlySetup.aspx" />
+    <Content Include="ProjectDenominatorsChanges.aspx" />
+    <Content Include="ProjectDenominatorUpdate.aspx" />
+    <Content Include="ProjectNameImport.aspx" />
+    <Content Include="QATImport.aspx" />
+    <Content Include="RecheckedAccuracy.aspx" />
+    <Content Include="SingleSheet_Excel_Import.aspx" />
+    <Content Include="TicTacImport.aspx" />
+    <Content Include="UserSignUp.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccuracyImport.aspx.cs">
+      <DependentUpon>AccuracyImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccuracyImport.aspx.designer.cs">
+      <DependentUpon>AccuracyImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccuracyPercentRateSetup.aspx.cs">
+      <DependentUpon>AccuracyPercentRateSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccuracyPercentRateSetup.aspx.designer.cs">
+      <DependentUpon>AccuracyPercentRateSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\BusinessLogic.cs" />
+    <Compile Include="Base\DbTableBase.cs" />
+    <Compile Include="Base\EntityBase.cs" />
+    <Compile Include="Business\AccuracyPercentage.cs" />
+    <Compile Include="Business\AccuracyPercentRate.cs" />
+    <Compile Include="Business\Cancel.cs" />
+    <Compile Include="Business\CategoryExpert.cs" />
+    <Compile Include="Business\CategoryExpertHunt.cs" />
+    <Compile Include="Business\CategoryExpertVoting.cs" />
+    <Compile Include="Business\DenoChange.cs" />
+    <Compile Include="Business\ProbesQty.cs" />
+    <Compile Include="Business\ProbesRange.cs" />
+    <Compile Include="Business\ProbesRate.cs" />
+    <Compile Include="Business\ProjectNames.cs" />
+    <Compile Include="Business\QAT.cs" />
+    <Compile Include="Business\TicTac.cs" />
+    <Compile Include="CancelImport.aspx.cs">
+      <DependentUpon>CancelImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelImport.aspx.designer.cs">
+      <DependentUpon>CancelImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Criteria\ExportAccuracy.cs" />
+    <Compile Include="Criteria\ExportCategoryExpert.cs" />
+    <Compile Include="Criteria\ExportCategoryExpertHunt.cs" />
+    <Compile Include="Criteria\ExportCategoryExpertVoting.cs" />
+    <Compile Include="Criteria\ExportRepricing.cs" />
+    <Compile Include="Business\Masks.cs" />
+    <Compile Include="Business\PricingProbes.cs" />
+    <Compile Include="Business\Probes.cs" />
+    <Compile Include="Business\ProjectDenominators.cs" />
+    <Compile Include="Business\Repricing.cs" />
+    <Compile Include="Business\SceneRecognition.cs" />
+    <Compile Include="Business\Scenes.cs" />
+    <Compile Include="Business\SmartStitching.cs" />
+    <Compile Include="Business\User.cs" />
+    <Compile Include="Business\Votes.cs" />
+    <Compile Include="CommonAttributes\DbColumnAttribute.cs" />
+    <Compile Include="CommonAttributes\DbTableAttribute.cs" />
+    <Compile Include="Common\BranchConfiguration\BranchSection.cs" />
+    <Compile Include="Common\Builder\DeleteBuilder.cs" />
+    <Compile Include="Common\Builder\InsertSqlBuilder.cs" />
+    <Compile Include="Common\Builder\ISqlBuilder.cs" />
+    <Compile Include="Common\Builder\QueryContext.cs" />
+    <Compile Include="Common\Builder\QueryDirector.cs" />
+    <Compile Include="Common\Builder\UpdateBuilder.cs" />
+    <Compile Include="Common\Enum\Enum.cs" />
+    <Compile Include="Common\Expression\ExpressionHelper.cs" />
+    <Compile Include="Common\Extension\CommaExtension.cs" />
+    <Compile Include="Common\Extension\DAOConnection.cs" />
+    <Compile Include="Common\Extension\EnumExtension.cs" />
+    <Compile Include="Common\Feature\DBReader.cs" />
+    <Compile Include="Common\Feature\DBWriter.cs" />
+    <Compile Include="Common\Feature\IDBReadable.cs" />
+    <Compile Include="Common\Feature\IDBWriteable.cs" />
+    <Compile Include="Common\Mapper\SqlSelect.cs" />
+    <Compile Include="Common\Message\MessageBox.cs" />
+    <Compile Include="Common\Utility\GeneralUtility.cs" />
+    <Compile Include="Criteria\ExportMasks.cs" />
+    <Compile Include="Criteria\ExportPricingProbes.cs" />
+    <Compile Include="Criteria\ExportProbes.cs" />
+    <Compile Include="Criteria\ExportSceneRecognition.cs" />
+    <Compile Include="Criteria\ExportScenes.cs" />
+    <Compile Include="Criteria\ExportTicTacs.cs" />
+    <Compile Include="Criteria\ExportViewDeno.cs" />
+    <Compile Include="Criteria\ExportViewWithoutDe.cs" />
+    <Compile Include="Criteria\ImportJobsCriteria.cs" />
+    <Compile Include="DAO\AccPerRateDAO.cs" />
+    <Compile Include="DAO\AccuracyPercentageDAO.cs" />
+    <Compile Include="DAO\CancelDAO.cs" />
+    <Compile Include="DAO\CategoryExpertDAO.cs" />
+    <Compile Include="DAO\CategoryExpertHuntDAO.cs" />
+    <Compile Include="DAO\CategoryExpertVotingDAO.cs" />
+    <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\DenoChangeDAO.cs" />
+    <Compile Include="DAO\MasksDAO.cs" />
+    <Compile Include="DAO\PricingProbesDAO.cs" />
+    <Compile Include="DAO\ProbesDAO.cs" />
+    <Compile Include="DAO\ProbesQtyDAO.cs" />
+    <Compile Include="DAO\ProbesRangeDAO.cs" />
+    <Compile Include="DAO\ProbesRateDAO.cs" />
+    <Compile Include="DAO\ProjectDenominatorsDAO.cs" />
+    <Compile Include="DAO\ProjectNamesDAO.cs" />
+    <Compile Include="DAO\QATDAO.cs" />
+    <Compile Include="DAO\RepricingDAO.cs" />
+    <Compile Include="DAO\SceneRecognitionDAO.cs" />
+    <Compile Include="DAO\ScenesDAO.cs" />
+    <Compile Include="DAO\SmartStitchingDAO.cs" />
+    <Compile Include="DAO\TicTacDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DAO\VotesDAO.cs" />
+    <Compile Include="Demo.aspx.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo.aspx.designer.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DenominatorImport.aspx.cs">
+      <DependentUpon>DenominatorImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DenominatorImport.aspx.designer.cs">
+      <DependentUpon>DenominatorImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DenominatorImportForAllProjectDaily.aspx.cs">
+      <DependentUpon>DenominatorImportForAllProjectDaily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DenominatorImportForAllProjectDaily.aspx.designer.cs">
+      <DependentUpon>DenominatorImportForAllProjectDaily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AccPerRateEntity.cs" />
+    <Compile Include="Entity\AccuracyEntity.cs" />
+    <Compile Include="Entity\BranchEntity.cs" />
+    <Compile Include="Entity\CancelEntity.cs" />
+    <Compile Include="Entity\CategoryExpertEntity.cs" />
+    <Compile Include="Entity\CategoryExpertHuntEntity.cs" />
+    <Compile Include="Entity\CategoryExpertVotingEntity.cs" />
+    <Compile Include="Criteria\ExportVotes.cs" />
+    <Compile Include="Entity\Class1.cs" />
+    <Compile Include="Entity\DenoChangeEntity.cs" />
+    <Compile Include="Entity\ExportMasksOther.cs" />
+    <Compile Include="Criteria\ExportViewWithoutDeGSS.cs" />
+    <Compile Include="Entity\MasksEntity.cs" />
+    <Compile Include="Entity\PQuantityEntity.cs" />
+    <Compile Include="Entity\PricingProbesEntity.cs" />
+    <Compile Include="Entity\ProbesEntity.cs" />
+    <Compile Include="Entity\ProbesRangeEntity.cs" />
+    <Compile Include="Entity\ProjectDenominatorsEntity.cs" />
+    <Compile Include="Entity\ProjectNamesEntity.cs" />
+    <Compile Include="Entity\QATEntity.cs" />
+    <Compile Include="Entity\RateEntity.cs" />
+    <Compile Include="Entity\RepricingEntity.cs" />
+    <Compile Include="Entity\SceneRecognitionEntity.cs" />
+    <Compile Include="Entity\ScenesEntity.cs" />
+    <Compile Include="Entity\SheetEntity.cs" />
+    <Compile Include="Entity\SmartStitchingEntity.cs" />
+    <Compile Include="Entity\TicTacEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Entity\VotesEntity.cs" />
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Import.aspx.cs">
+      <DependentUpon>Excel_Import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Excel_Import.aspx.designer.cs">
+      <DependentUpon>Excel_Import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_3PA_GSS.aspx.cs">
+      <DependentUpon>Export_Accuracy_3PA_GSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_3PA_GSS.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_3PA_GSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_3PA_Org.aspx.cs">
+      <DependentUpon>Export_Accuracy_3PA_Org.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_3PA_Org.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_3PA_Org.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_Above_96.aspx.cs">
+      <DependentUpon>Export_Accuracy_Above_96.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_Above_96.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_Above_96.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_Above_GSS.aspx.cs">
+      <DependentUpon>Export_Accuracy_Above_GSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_Above_GSS.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_Above_GSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_Under_96.aspx.cs">
+      <DependentUpon>Export_Accuracy_Under_96.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_Under_96.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_Under_96.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Accuracy_Under_GSS.aspx.cs">
+      <DependentUpon>Export_Accuracy_Under_GSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Accuracy_Under_GSS.aspx.designer.cs">
+      <DependentUpon>Export_Accuracy_Under_GSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_List_Without_Deno.aspx.cs">
+      <DependentUpon>Export_List_Without_Deno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_List_Without_Deno.aspx.designer.cs">
+      <DependentUpon>Export_List_Without_Deno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_List_With_Deno.aspx.cs">
+      <DependentUpon>Export_List_With_Deno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_List_With_Deno.aspx.designer.cs">
+      <DependentUpon>Export_List_With_Deno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_List_With_Single.aspx.cs">
+      <DependentUpon>Export_List_With_Single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_List_With_Single.aspx.designer.cs">
+      <DependentUpon>Export_List_With_Single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_List_With_Single_IGS.aspx.cs">
+      <DependentUpon>Export_List_With_Single_IGS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_List_With_Single_IGS.aspx.designer.cs">
+      <DependentUpon>Export_List_With_Single_IGS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_List_With_Special.aspx.cs">
+      <DependentUpon>Export_List_With_Special.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_List_With_Special.aspx.designer.cs">
+      <DependentUpon>Export_List_With_Special.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_ProjectName.aspx.cs">
+      <DependentUpon>Export_ProjectName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_ProjectName.aspx.designer.cs">
+      <DependentUpon>Export_ProjectName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_QAT.aspx.cs">
+      <DependentUpon>Export_QAT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_QAT.aspx.designer.cs">
+      <DependentUpon>Export_QAT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_TicTac.aspx.cs">
+      <DependentUpon>Export_TicTac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_TicTac.aspx.designer.cs">
+      <DependentUpon>Export_TicTac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Import_ProbesList.aspx.cs">
+      <DependentUpon>Import_ProbesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Import_ProbesList.aspx.designer.cs">
+      <DependentUpon>Import_ProbesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobsImport_List2.aspx.cs">
+      <DependentUpon>JobsImport_List2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobsImport_List2.aspx.designer.cs">
+      <DependentUpon>JobsImport_List2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProbesListwithDenimonator.aspx.cs">
+      <DependentUpon>ProbesListwithDenimonator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProbesListwithDenimonator.aspx.designer.cs">
+      <DependentUpon>ProbesListwithDenimonator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProbesListwithoutDenimonator.aspx.cs">
+      <DependentUpon>ProbesListwithoutDenimonator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProbesListwithoutDenimonator.aspx.designer.cs">
+      <DependentUpon>ProbesListwithoutDenimonator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProbesQtySetup.aspx.cs">
+      <DependentUpon>ProbesQtySetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProbesQtySetup.aspx.designer.cs">
+      <DependentUpon>ProbesQtySetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProbesRangeSetup.aspx.cs">
+      <DependentUpon>ProbesRangeSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProbesRangeSetup.aspx.designer.cs">
+      <DependentUpon>ProbesRangeSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProbesRateSetup.aspx.cs">
+      <DependentUpon>ProbesRateSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProbesRateSetup.aspx.designer.cs">
+      <DependentUpon>ProbesRateSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDenominatorList.aspx.cs">
+      <DependentUpon>ProjectDenominatorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDenominatorList.aspx.designer.cs">
+      <DependentUpon>ProjectDenominatorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDenominatorMonthlySetup.aspx.cs">
+      <DependentUpon>ProjectDenominatorMonthlySetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDenominatorMonthlySetup.aspx.designer.cs">
+      <DependentUpon>ProjectDenominatorMonthlySetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDenominatorsChanges.aspx.cs">
+      <DependentUpon>ProjectDenominatorsChanges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDenominatorsChanges.aspx.designer.cs">
+      <DependentUpon>ProjectDenominatorsChanges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDenominatorUpdate.aspx.cs">
+      <DependentUpon>ProjectDenominatorUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDenominatorUpdate.aspx.designer.cs">
+      <DependentUpon>ProjectDenominatorUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectNameImport.aspx.cs">
+      <DependentUpon>ProjectNameImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectNameImport.aspx.designer.cs">
+      <DependentUpon>ProjectNameImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QATImport.aspx.cs">
+      <DependentUpon>QATImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QATImport.aspx.designer.cs">
+      <DependentUpon>QATImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecheckedAccuracy.aspx.cs">
+      <DependentUpon>RecheckedAccuracy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecheckedAccuracy.aspx.designer.cs">
+      <DependentUpon>RecheckedAccuracy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SingleSheet_Excel_Import.aspx.cs">
+      <DependentUpon>SingleSheet_Excel_Import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SingleSheet_Excel_Import.aspx.designer.cs">
+      <DependentUpon>SingleSheet_Excel_Import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TicTacImport.aspx.cs">
+      <DependentUpon>TicTacImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicTacImport.aspx.designer.cs">
+      <DependentUpon>TicTacImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSignUp.aspx.cs">
+      <DependentUpon>UserSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSignUp.aspx.designer.cs">
+      <DependentUpon>UserSignUp.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\jquery-file-upload\.gitignore" />
+    <None Include="assets\jquery-file-upload\blueimp-file-upload.jquery.json" />
+    <None Include="assets\jquery-file-upload\CONTRIBUTING.md" />
+    <None Include="assets\jquery-file-upload\package.json" />
+    <None Include="assets\jquery-file-upload\README.md" />
+    <None Include="assets\jquery-file-upload\server\gae-go\app.yaml" />
+    <None Include="assets\jquery-file-upload\server\gae-go\app\main.go" />
+    <None Include="assets\jquery-file-upload\server\gae-python\app.yaml" />
+    <None Include="assets\jquery-file-upload\server\gae-python\main.py" />
+    <None Include="assets\jquery-file-upload\server\node\.gitignore" />
+    <None Include="assets\jquery-file-upload\server\node\package.json" />
+    <None Include="assets\jquery-file-upload\server\node\public\files\thumbnail\.gitignore" />
+    <None Include="assets\jquery-file-upload\server\node\tmp\.gitignore" />
+    <None Include="assets\jquery-file-upload\server\php\files\.htaccess" />
+    <None Include="assets\jquery-file-upload\server\php\files\gr.php" />
+    <None Include="assets\jquery-file-upload\server\php\index.php" />
+    <None Include="assets\jquery-file-upload\server\php\UploadHandler.php" />
+    <None Include="assets\jquery-knob\README.md" />
+    <None Include="assets\morris.js-0.4.3\.gitignore" />
+    <None Include="assets\morris.js-0.4.3\.travis.yml" />
+    <None Include="assets\morris.js-0.4.3\component.json" />
+    <None Include="assets\morris.js-0.4.3\less\morris.core.less" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.area.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.bar.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.donut.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.grid.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.hover.coffee" />
+    <None Include="assets\morris.js-0.4.3\lib\morris.line.coffee" />
+    <None Include="assets\morris.js-0.4.3\package.json" />
+    <None Include="assets\morris.js-0.4.3\README.md" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\area\area_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\bar\bar_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\bar\colours.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\commas_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\donut\donut_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\grid\auto_grid_lines_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\grid\set_data_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\grid\y_label_format_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\hover_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\label_series_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\line\line_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\pad_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\lib\parse_time_spec.coffee" />
+    <None Include="assets\morris.js-0.4.3\spec\support\placeholder.coffee" />
+    <None Include="css\bootstrap-chosen.less" />
+    <None Include="css\bootstrap-chosen.scss" />
+    <None Include="fonts\ElegantIcons.eot" />
+    <None Include="fonts\ElegantIcons.ttf" />
+    <None Include="fonts\ElegantIcons.woff" />
+    <None Include="fonts\fontawesome-webfont.eot" />
+    <None Include="fonts\fontawesome-webfont.ttf" />
+    <None Include="fonts\fontawesome-webfont.woff" />
+    <None Include="fonts\FontAwesome.otf" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\chart-master\docs\" />
+    <Folder Include="assets\chart-master\samples\" />
+    <Folder Include="assets\chart-master\site\assets\" />
+    <Folder Include="assets\ckeditor\lang\" />
+    <Folder Include="assets\ckeditor\plugins\a11yhelp\dialogs\lang\" />
+    <Folder Include="assets\ckeditor\plugins\about\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\clipboard\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\dialog\" />
+    <Folder Include="assets\ckeditor\plugins\fakeobjects\images\" />
+    <Folder Include="assets\ckeditor\plugins\image\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\image\images\" />
+    <Folder Include="assets\ckeditor\plugins\link\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\link\images\" />
+    <Folder Include="assets\ckeditor\plugins\magicline\images\" />
+    <Folder Include="assets\ckeditor\plugins\pastefromword\filter\" />
+    <Folder Include="assets\ckeditor\plugins\scayt\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\specialchar\dialogs\lang\" />
+    <Folder Include="assets\ckeditor\plugins\tabletools\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\table\dialogs\" />
+    <Folder Include="assets\ckeditor\plugins\wsc\dialogs\" />
+    <Folder Include="assets\ckeditor\samples\assets\inlineall\" />
+    <Folder Include="assets\ckeditor\samples\assets\outputxhtml\" />
+    <Folder Include="assets\ckeditor\samples\assets\uilanguages\" />
+    <Folder Include="assets\ckeditor\samples\plugins\dialog\assets\" />
+    <Folder Include="assets\ckeditor\samples\plugins\enterkey\" />
+    <Folder Include="assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\" />
+    <Folder Include="assets\ckeditor\samples\plugins\magicline\" />
+    <Folder Include="assets\ckeditor\samples\plugins\toolbar\" />
+    <Folder Include="assets\ckeditor\samples\plugins\wysiwygarea\" />
+    <Folder Include="assets\ckeditor\skins\moono\images\" />
+    <Folder Include="assets\fullcalendar\demos\cupertino\images\" />
+    <Folder Include="assets\fullcalendar\fullcalendar\" />
+    <Folder Include="assets\fullcalendar\jquery\" />
+    <Folder Include="assets\jquery-easy-pie-chart\examples\" />
+    <Folder Include="assets\jquery-easy-pie-chart\img\" />
+    <Folder Include="assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14173</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
